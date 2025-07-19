@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Portfolio - Contact Us</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(120deg, #111 0%, #2d0000 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    nav {
+      background: #b30000;
+      padding: 1em 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      animation: navFadeIn 1s ease;
+    }
+    @keyframes navFadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    nav a {
+      color: #fff;
+      margin: 0 1.5em;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      position: relative;
+      transition: color 0.3s;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: width 0.3s;
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+    }
+    nav a:hover {
+      color: #b30000;
+      background: #fff;
+      border-radius: 4px;
+      padding: 0.2em 0.5em;
+    }
+    nav a:hover::after {
+      width: 100%;
+      background: #b30000;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2em auto;
+      background: #181818;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px #b3000033;
+      padding: 2.5em 2em;
+      animation: fadeIn 1.2s cubic-bezier(.39,.575,.56,1.000);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h2 {
+      color: #b30000;
+      margin-top: 0;
+      animation: textPop 1.2s 0.3s cubic-bezier(.39,.575,.56,1.000) both;
+    }
+    @keyframes textPop {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+      animation: fadeInRight 1.2s 0.2s cubic-bezier(.39,.575,.56,1.000) both;
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    label {
+      font-weight: bold;
+      color: #fff;
+    }
+    input, textarea {
+      padding: 0.7em;
+      border: 1.5px solid #b30000;
+      border-radius: 4px;
+      font-size: 1em;
+      background: #222;
+      color: #fff;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+    input:focus, textarea:focus {
+      border: 1.5px solid #fff;
+      box-shadow: 0 0 8px #b30000;
+      outline: none;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    button {
+      background: #b30000;
+      color: #fff;
+      border: none;
+      padding: 0.8em 1.5em;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+      font-weight: bold;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 8px #b3000022;
+      transition: background 0.3s, color 0.3s, transform 0.3s;
+      animation: btnPop 1.2s 0.4s cubic-bezier(.39,.575,.56,1.000) both;
+    }
+    @keyframes btnPop {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    button:hover {
+      background: #fff;
+      color: #b30000;
+      transform: scale(1.05);
+      box-shadow: 0 4px 16px #b3000044;
+    }
+    @media (max-width: 700px) {
+      .container { padding: 1em; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="education.html">Education</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+  <div class="container">
+    <h2>Contact Us</h2>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="details">Other Details</label>
+      <textarea id="details" name="details" placeholder="Your message..."></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</body>
+</html>

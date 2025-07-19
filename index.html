@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Portfolio - Home</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: radial-gradient(circle at 60% 40%, #2d0000 0%, #111 100%);
+      overflow-x: hidden;
+    }
+    nav {
+      background: #b30000;
+      padding: 1em 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      animation: navFadeIn 1s ease;
+    }
+    @keyframes navFadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    nav a {
+      color: #fff;
+      margin: 0 1.5em;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      position: relative;
+      transition: color 0.3s;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: width 0.3s;
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+    }
+    nav a:hover {
+      color: #b30000;
+      background: #fff;
+      border-radius: 4px;
+      padding: 0.2em 0.5em;
+    }
+    nav a:hover::after {
+      width: 100%;
+      background: #b30000;
+    }
+    .main-bg {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .anime-card {
+      position: relative;
+      background: rgba(24, 24, 24, 0.92);
+      border-radius: 32px;
+      box-shadow: 0 8px 32px #b3000033;
+      padding: 0;
+      display: flex;
+      align-items: stretch;
+      max-width: 900px;
+      width: 90vw;
+      min-height: 500px;
+      overflow: hidden;
+      animation: fadeIn 1.2s cubic-bezier(.39,.575,.56,1.000);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .anime-img {
+      flex: 0 0 380px;
+      background: linear-gradient(120deg, #b30000 60%, #111 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      box-shadow: 8px 0 32px #b3000033;
+      min-height: 500px;
+      overflow: hidden;
+      animation: imgPop 1.2s cubic-bezier(.39,.575,.56,1.000);
+    }
+    @keyframes imgPop {
+      0% { transform: scale(0.7) rotate(-10deg); opacity: 0; }
+      80% { transform: scale(1.1) rotate(3deg); opacity: 1; }
+      100% { transform: scale(1) rotate(0); }
+    }
+    .anime-img img {
+      width: 340px;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 0 0 24px 24px;
+      border: 4px solid #b30000;
+      box-shadow: 0 8px 32px #b3000044;
+      background: #111;
+      margin-bottom: 0;
+      margin-top: 20px;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .anime-img img:hover {
+      transform: scale(1.04) rotate(2deg);
+      box-shadow: 0 16px 48px #b3000088;
+    }
+    .anime-info {
+      flex: 1;
+      color: #fff;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2.5em 2em 2.5em 2em;
+      animation: fadeInRight 1.2s 0.2s cubic-bezier(.39,.575,.56,1.000) both;
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .anime-info h1 {
+      margin-top: 0;
+      font-size: 2.5em;
+      color: #b30000;
+      letter-spacing: 1px;
+      animation: textPop 1.2s 0.3s cubic-bezier(.39,.575,.56,1.000) both;
+    }
+    @keyframes textPop {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .social-links {
+      margin: 1em 0 1.5em 0;
+    }
+    .social-links a {
+      margin-right: 1em;
+      color: #b30000;
+      font-size: 2em;
+      text-decoration: none;
+      display: inline-block;
+      transition: color 0.3s, transform 0.3s, background 0.3s;
+      filter: drop-shadow(0 2px 8px #b3000022);
+      background: #222;
+      border-radius: 50%;
+      padding: 0.2em 0.3em;
+    }
+    .social-links a:hover {
+      color: #fff;
+      background: #b30000;
+      transform: scale(1.2) rotate(-8deg);
+      filter: drop-shadow(0 4px 16px #b3000044);
+    }
+    .anime-info p {
+      font-size: 1.15em;
+      color: #fff;
+      line-height: 1.7;
+      margin-bottom: 0;
+      animation: fadeIn 1.2s 0.5s cubic-bezier(.39,.575,.56,1.000) both;
+    }
+    .petals {
+      position: absolute;
+      left: 0; top: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .petal {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background: radial-gradient(circle at 60% 40%, #fff 60%, #b30000 100%);
+      border-radius: 50% 60% 60% 50% / 60% 50% 60% 50%;
+      opacity: 0.7;
+      animation: fall 6s linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-40px) rotate(0deg) scale(1); opacity: 0.8; }
+      80% { opacity: 0.8; }
+      100% { transform: translateY(600px) rotate(360deg) scale(0.7); opacity: 0; }
+    }
+    @media (max-width: 900px) {
+      .anime-card { flex-direction: column; align-items: center; min-height: unset; }
+      .anime-img { flex: unset; min-height: unset; width: 100%; justify-content: center; }
+      .anime-img img { width: 220px; height: 290px; }
+      .anime-info { padding: 1.5em 1em; }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="education.html">Education</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+  <div class="main-bg">
+    <div class="anime-card">
+      <div class="anime-img">
+        <img src="image.png" alt="Student Illustration">
+      </div>
+      <div class="anime-info">
+        <h1>John Doe</h1>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/johndoe" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/johndoe" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/johndoe" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <p>
+          Hello! I'm John Doe, a passionate computer science student with a love for web development and open-source projects. I enjoy learning new technologies and building creative solutions to real-world problems.
+        </p>
+      </div>
+      <div class="petals">
+        <div class="petal" style="left:10%;animation-delay:0s;"></div>
+        <div class="petal" style="left:25%;animation-delay:1.2s;"></div>
+        <div class="petal" style="left:40%;animation-delay:2.1s;"></div>
+        <div class="petal" style="left:55%;animation-delay:0.7s;"></div>
+        <div class="petal" style="left:70%;animation-delay:1.7s;"></div>
+        <div class="petal" style="left:85%;animation-delay:2.8s;"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Portfolio - Education</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(120deg, #111 0%, #2d0000 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    nav {
+      background: #b30000;
+      padding: 1em 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      animation: navFadeIn 1s ease;
+    }
+    @keyframes navFadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    nav a {
+      color: #fff;
+      margin: 0 1.5em;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      position: relative;
+      transition: color 0.3s;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: width 0.3s;
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+    }
+    nav a:hover {
+      color: #b30000;
+      background: #fff;
+      border-radius: 4px;
+      padding: 0.2em 0.5em;
+    }
+    nav a:hover::after {
+      width: 100%;
+      background: #b30000;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2em auto;
+      background: #181818;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px #b3000033;
+      padding: 2.5em 2em;
+      animation: fadeIn 1.2s cubic-bezier(.39,.575,.56,1.000);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h2 {
+      color: #b30000;
+      margin-top: 0;
+      animation: textPop 1.2s 0.3s cubic-bezier(.39,.575,.56,1.000) both;
+    }
+    @keyframes textPop {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .edu-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      animation: fadeInRight 1.2s 0.2s cubic-bezier(.39,.575,.56,1.000) both;
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .edu-list li {
+      margin-bottom: 2em;
+      background: #222;
+      border-left: 6px solid #b30000;
+      border-radius: 8px;
+      padding: 1.2em 1.5em;
+      color: #fff;
+      box-shadow: 0 2px 8px #b3000022;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .edu-list li:hover {
+      transform: scale(1.03) translateX(8px);
+      box-shadow: 0 8px 24px #b3000044;
+    }
+    .degree {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #b30000;
+    }
+    .school {
+      color: #fff;
+      font-size: 1.05em;
+    }
+    .year {
+      color: #b30000;
+      font-size: 0.98em;
+    }
+    @media (max-width: 700px) {
+      .container { padding: 1em; }
+      .edu-list li { padding: 1em; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="education.html">Education</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+  <div class="container">
+    <h2>Education Details</h2>
+    <ul class="edu-list">
+      <li>
+        <span class="degree">B.Sc. in Computer Science</span><br>
+        <span class="school">ABC University</span><br>
+        <span class="year">2022 - Present</span>
+      </li>
+      <li>
+        <span class="degree">Higher Secondary School Certificate</span><br>
+        <span class="school">XYZ Senior Secondary School</span><br>
+        <span class="year">2020 - 2022</span>
+      </li>
+      <li>
+        <span class="degree">Secondary School Certificate</span><br>
+        <span class="school">LMN High School</span><br>
+        <span class="year">2018 - 2020</span>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
